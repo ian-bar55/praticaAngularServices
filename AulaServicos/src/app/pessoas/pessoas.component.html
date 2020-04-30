@@ -1,0 +1,20 @@
+<table style="width:100%">
+    <tr>
+        <th class="alinharTextoAEsquerda">Id</th>
+        <th class="alinharTextoAEsquerda">Nome</th>
+        <th class="alinharTextoAEsquerda">E-mail</th>
+        <th class="alinharTextoAEsquerda">Detalhe</th>
+    </tr>
+    <tr *ngFor="let item of pessoas">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>
+            <button (click)="detalhe(item.id)">Detalhe</button>
+        </td>        
+    </tr>
+</table>
+<div *ngIf="detalhePessoa === true">
+    <h1>Detalhe da Pessoa</h1>
+    <app-pessoas-detalhe [recebePessoa]="pessoa" (alteracaoPessoa)="alterarNomePessoa($event)" ></app-pessoas-detalhe>
+</div>
